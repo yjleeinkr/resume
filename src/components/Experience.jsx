@@ -1,0 +1,143 @@
+import styled from "styled-components";
+import { MdTransitEnterexit } from "react-icons/md";
+import { VscCircleSmall } from "react-icons/vsc";
+import { SubTitle, Subject, DetailSubject } from "./Common";
+
+const Wrapper = styled.div`
+  padding: 20px;
+`;
+
+const FlexBox = styled.div`
+  padding: 40px 0px;
+  box-sizing: border-box;
+  display: flex;
+`;
+
+const SummaryBox = styled.div`
+  width: 27%;
+`
+
+const TextBox = styled.div`
+  width: 71%;
+`
+
+const SummaryText = styled.p`
+  font-size: 17px;
+  font-weight: 300;
+  padding: 15px 0px;
+`;
+
+const SubText = styled.p`
+  color : #41424a;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 3px 0px;
+`
+
+const ListWrapper = styled.ul`
+  padding: 10px 0px;
+`
+
+const List = styled.li`
+  font-size: 16px;
+  font-weight: 300;
+  padding: 6px 0px;
+`;
+
+const PillBox = styled.div`
+  padding: 10px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+`;
+
+const Pill = styled.span`
+  font-size: 16px;
+  font-weight: 300;
+  background-color: #fff;
+  color: #000;
+  min-width: 70px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin: 5px 3px;
+  text-align: center;
+  box-shadow: 0 0 5px #ddd;
+`;
+
+const workData = {
+  ozlabs: {
+    details: [
+      "기존 Vue2 기반의 외주 코드를 Vue3로 마이그레이션 작업 및 중복 컴포넌트 리팩토링 작업",
+      "모바일 및 태블릿 반응형 인터페이스 구현",
+      "파트너사 사이트 및 백오피스 툴 개발",
+      "vue-i18n를 활용하여 다국어 지원 대응",
+      "리프레쉬 토큰 및 엑세스 토큰 만료 시 자동 로그아웃 구현",
+      "일부 페이지 이미지 스프라이트 기법을 통해 이미지 로드 속도 최적화",
+      "홍보용 affiliate 싱글 페이지 사이트 개발 - bettingspoonaffilliate.com",
+      "사내 프론트엔드 코딩 컨벤션 가이드 정립",
+    ],
+    stacks: [
+      "Vue",
+      "Vuex",
+      "Javascript",
+      "Github",
+      "Slack",
+      "Jira",
+    ],
+  },
+};
+
+function Experience() {
+  return (
+    <Wrapper>
+      <SubTitle>Work Experience.</SubTitle>
+      <FlexBox>
+        <SummaryBox>
+          <Subject>
+            <a
+              href="https://nft.bettingspoon.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Ozlabs
+              <MdTransitEnterexit />
+            </a>
+          </Subject>
+          <SubText>Web Frontend Developer</SubText>
+          <SubText>2022.11 - 현재</SubText>
+        </SummaryBox>
+        <TextBox>
+          <Subject>
+            <a href="https://bettingspoon.com" target="_blank" rel="noreferrer">
+              Bettingspoon.com
+              <MdTransitEnterexit />
+            </a>
+          </Subject>
+          <SummaryText>
+            신입 프론트엔드 개발자로서 글로벌 카지노 게임 플랫폼의 프론트단을
+            개발하고 있습니다. 현재 첫 런칭을 마무리했으며, 매주 버그 개선 및
+            일부 소소한 기능들을 추가하고 있습니다.
+          </SummaryText>
+          <DetailSubject>Details</DetailSubject>
+          <ListWrapper>
+            {workData.ozlabs.details.map((v) => (
+              <List>
+                <VscCircleSmall />
+                {v}
+              </List>
+            ))}
+          </ListWrapper>
+          <DetailSubject>Tech Stacks</DetailSubject>
+          <PillBox>
+            {workData.ozlabs.stacks.map((v) => (
+              <Pill>{v}</Pill>
+            ))}
+          </PillBox>
+        </TextBox>
+      </FlexBox>
+    </Wrapper>
+  );
+}
+
+export default Experience;
