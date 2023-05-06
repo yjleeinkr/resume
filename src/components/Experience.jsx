@@ -121,8 +121,8 @@ function Experience() {
           </SummaryText>
           <DetailSubject>Details</DetailSubject>
           <ListWrapper>
-            {workData.ozlabs.details.map((v) => (
-              <List>
+            {workData.ozlabs.details.map((v, i) => (
+              <List key={`ozlabs_${i}`}>
                 <VscCircleSmall />
                 {v}
               </List>
@@ -131,7 +131,7 @@ function Experience() {
           <DetailSubject>Tech Stacks</DetailSubject>
           <PillBox>
             {workData.ozlabs.stacks.map((v) => (
-              <Pill>{v}</Pill>
+              <Pill key={v}>{v}</Pill>
             ))}
           </PillBox>
         </TextBox>
