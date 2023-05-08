@@ -11,13 +11,13 @@ const Wrapper = styled.div`
   box-sizing: border-box;
 `;
 
-function Container() {
+function Container({ showModal }) {
   return (
     <Wrapper>
       <Profile />
       <Introduce />
       <Experience />
-      <ToyProject />
+      <ToyProject showModal={showModal}/>
     </Wrapper>
   );
 }
