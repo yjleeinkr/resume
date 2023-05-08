@@ -36,6 +36,13 @@ const ModalLayer = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
   align-items: center;
   animation: ${modalLayerAnimation} 0.3s;
+
+  .invisibleLayer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+  }
 `;
 
 const Modal = styled.div`
@@ -47,6 +54,7 @@ const Modal = styled.div`
   box-sizing: border-box;
   border-radius: 10px;
   animation: ${modalAnimation} 0.3s;
+  z-index: 10;
 `;
 
 const ModalHeader = styled.header`
@@ -66,7 +74,7 @@ const ModalHeader = styled.header`
     width: 36px;
     cursor: pointer;
   }
-  h1{
+  h1 {
     font-size: 25px;
   }
 `;
@@ -86,6 +94,8 @@ const SummaryBox = styled.div`
 
   .subject {
     font-weight: 600;
+    display: inline-block;
+    margin-bottom: 5px;
   }
 
   .text {
@@ -106,7 +116,7 @@ const SummaryBox = styled.div`
       margin-right: 10px;
       border-radius: 5px;
 
-      .icon{
+      .icon {
         margin-right: 5px;
       }
     }
@@ -121,6 +131,8 @@ const DetailBox = styled.div`
   }
   .subject {
     font-weight: 600;
+    display: inline-block;
+    margin-bottom: 5px;
   }
 
   .text {
@@ -137,11 +149,16 @@ const Img = styled.img`
 
 function DetailModal({ isModalVisible, showModal, project }) {
   const contents = projectDetail[project];
+
+  const hideModal = () => {
+    showModal(false, '')
+  }
   return (
     <ModalLayer isVisible={isModalVisible}>
+      <div className="invisibleLayer" onClick={hideModal}></div>
       <Modal>
         <ModalHeader>
-          <span className="closingBtn" onClick={() => showModal(false, "")}>
+          <span className="closingBtn" onClick={hideModal}>
             <CgClose />
           </span>
           <h1>{contents?.subject}</h1>
