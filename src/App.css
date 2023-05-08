@@ -1,5 +1,18 @@
 .App {
   width: 100%;
+  overflow: scroll;
+  overflow: -moz-scrollbars-none;
+  overflow: -webkit-scrollbar;
+  display: flex;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+::-moz-scrollbar {
+    display: none;
 }
 
 *{
