@@ -1,11 +1,7 @@
 import styled from "styled-components";
 import { MdTransitEnterexit } from "react-icons/md";
 import { VscCircleSmall } from "react-icons/vsc";
-import { SubTitle, Subject, DetailSubject } from "./Common";
-
-const Wrapper = styled.div`
-  padding: 20px;
-`;
+import { SubTitle, Subject, DetailSubject, Wrapper } from "./Common";
 
 const FlexBox = styled.div`
   padding: 40px 0px;
@@ -54,7 +50,7 @@ const PillBox = styled.div`
 const Pill = styled.span`
   font-size: 16px;
   font-weight: 300;
-  background-color: #fff;
+  background-color: rgb(240 240 240);
   color: #000;
   min-width: 70px;
   padding: 10px;
@@ -62,7 +58,7 @@ const Pill = styled.span`
   border-radius: 5px;
   margin: 5px 3px;
   text-align: center;
-  box-shadow: 0 0 5px #ddd;
+  border: 0.5px solid rgb(221, 221, 221);
 `;
 
 const workData = {

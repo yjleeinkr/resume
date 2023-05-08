@@ -1,9 +1,5 @@
 import styled from "styled-components";
-import { SubTitle, Subject } from "./Common";
-
-const Wrapper = styled.div`
-  padding: 20px;
-`;
+import { SubTitle, Subject, Wrapper } from "./Common";
 
 const TextBox = styled.div`
   padding: 30px 0px;

@@ -171,14 +171,6 @@ function DetailModal({ isModalVisible, showModal, project }) {
                 <span className="subject">Period.</span>
                 <p className="text">{contents?.period}</p>
               </li>
-              <li>
-                <span className="subject">Tech Stack.</span>
-                {contents?.techStack.map((tech, i) => (
-                  <p className="text" key={`stack_${i}`}>
-                    {tech}
-                  </p>
-                ))}
-              </li>
               <li className="assetsBox">
                 {contents?.assets.github !== "" && (
                   <span className="pill">
@@ -208,6 +200,14 @@ function DetailModal({ isModalVisible, showModal, project }) {
                 {contents?.intro.map((intro, i) => (
                   <p className="text" key={`intro_${i}`}>
                     - {intro}
+                  </p>
+                ))}
+              </li>
+              <li>
+                <span className="subject">Tech Stack.</span>
+                {contents?.techStack.map((tech, i) => (
+                  <p className="text" key={`stack_${i}`}>
+                    {tech}
                   </p>
                 ))}
               </li>

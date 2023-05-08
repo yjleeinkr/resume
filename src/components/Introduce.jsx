@@ -1,10 +1,5 @@
 import styled from "styled-components";
-import { SubTitle } from "./Common";
-
-const TextBox = styled.div`
-  padding: 20px;
-  box-sizing: border-box;
-`;
+import { SubTitle, Wrapper } from "./Common";
 
 const ParagraphText = styled.p`
   font-size: 17px;
@@ -15,7 +10,7 @@ const ParagraphText = styled.p`
 
 function Profile() {
   return (
-      <TextBox>
+      <Wrapper>
         <SubTitle>Introduce.</SubTitle>
         <ParagraphText>
           신입 웹 프론트엔드 개발자 이연정입니다. 의류학을 전공해 의류업계 쪽에서 일했지만 UI/UX
@@ -24,7 +19,7 @@ function Profile() {
           결정하는 건 UI라고 생각하기 때문에 사용하기 매끄럽고 계속 들어가고
           싶은 좋은 서비스를 만드는 개발자가 되고자 합니다.
         </ParagraphText>
-      </TextBox>
+      </Wrapper>
   );
 }
 
