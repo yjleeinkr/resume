@@ -8,6 +8,10 @@
   -ms-overflow-style: none;
 }
 
+.scroll_lock{
+  overflow: hidden;
+}
+
 ::-webkit-scrollbar {
     display: none;
 }

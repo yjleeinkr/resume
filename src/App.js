@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Container from "./components/Container";
 import DetailModal from "./components/DetailModal";
@@ -11,6 +11,14 @@ function App() {
     setIsModalVisibile(boolean);
     setClickedProject(projectName);
   }
+
+  useEffect(() => {
+    const body = document.querySelector('body');
+    isModalVisible
+      ? body.classList.add("scroll_lock")
+      : body.classList.remove("scroll_lock");
+  }, [isModalVisible]);
+
   return (
     <div className="App">
       <DetailModal
