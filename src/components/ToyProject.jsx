@@ -56,28 +56,28 @@ function ToyProject({ showModal }) {
       <SubTitle>Toy Project.</SubTitle>
       <SlideBox>
         <Slider>
-          <ProjectCard onClick={() => showDetails('nft')}>
+          <ProjectCard onClick={() => showDetails("nft")}>
             <TbPlaylist className={`${styles.icon} ${styles.purple}`} />
             <div>
               <p>기업 협업 프로젝트,</p>
               <p>NFT 음원 거래 사이트.</p>
             </div>
           </ProjectCard>
-          <ProjectCard>
+          <ProjectCard onClick={() => showDetails("blockExplorer")}>
             <FaEthereum className={`${styles.icon} ${styles.slate}`} />
             <div>
               <p>이더리움 기반,</p>
               <p>Block Explorer 사이트.</p>
             </div>
           </ProjectCard>
-          <ProjectCard>
+          <ProjectCard onClick={() => showDetails("toastApp")}>
             <AiOutlineAppstore className={`${styles.icon} ${styles.green}`} />
             <div>
               <p>랜덤 건배사 앱,</p>
               <p>술자리의 민족.</p>
             </div>
           </ProjectCard>
-          <ProjectCard>
+          <ProjectCard onClick={() => showDetails("carrotWorld")}>
             <TbCarrot className={`${styles.icon} ${styles.orange}`} />
             <div>
               <p>중고거래/경매 사이트,</p>
