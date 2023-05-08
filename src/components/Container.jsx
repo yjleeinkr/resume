@@ -3,6 +3,7 @@ import Profile from "./Profile";
 import Introduce from "./Introduce";
 import Experience from "./Experience";
 import ToyProject from "./ToyProject";
+import Education from "./Education";
 
 const Wrapper = styled.div`
   width: 980px;
@@ -17,7 +18,8 @@ function Container({ showModal }) {
       <Profile />
       <Introduce />
       <Experience />
-      <ToyProject showModal={showModal}/>
+      <ToyProject showModal={showModal} />
+      <Education />
     </Wrapper>
   );
 }
