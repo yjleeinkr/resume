@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/yjlee_resume/static/css/main.8d5de99a.css",
+    "main.js": "/yjlee_resume/static/js/main.5a306e6a.js",
+    "index.html": "/yjlee_resume/index.html",
+    "main.8d5de99a.css.map": "/yjlee_resume/static/css/main.8d5de99a.css.map",
+    "main.5a306e6a.js.map": "/yjlee_resume/static/js/main.5a306e6a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d5de99a.css",
+    "static/js/main.5a306e6a.js"
+  ]
+}
