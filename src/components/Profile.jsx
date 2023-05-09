@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { HiOutlineMail, HiPhone } from "react-icons/hi";
 import { GoMarkGithub } from "react-icons/go";
@@ -8,16 +9,22 @@ const FlexWrapper = styled(Wrapper)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 const ImgBox = styled.img`
   width: 28%;
+  opacity: 0.5;
+  transform: translateY(-20px);
+  transition: all 0.7s;
 `;
 
 const TextBox = styled.div`
   width: 70%;
   padding: 10px;
   box-sizing: border-box;
+  opacity: 0.5;
+  transform: translateY(-20px);
+  transition: all 0.7s;
 
   .introduceText {
     padding: 10px 0px;
@@ -61,10 +68,27 @@ const NonHoverText = styled(Text)`
 `;
 
 function Profile() {
+  const imgRef = useRef();
+  const profileRef = useRef();
+  useEffect(() => {
+    let observer = new IntersectionObserver((e) => {
+      e.forEach((v) => {
+        if (v.isIntersecting) {
+          v.target.style.opacity = 1;
+          v.target.style.transform = "translateY(0px)";
+        } else {
+          v.target.style.opacity = 0;
+          v.target.style.transform = "translateY(-20px)";
+        }
+      });
+    });
+    observer.observe(profileRef.current);
+    observer.observe(imgRef.current);
+  }, []);
   return (
     <FlexWrapper>
-      <ImgBox src="profile_img.png" alt="my_profile" />
-      <TextBox>
+      <ImgBox src="profile_img.png" alt="my_profile" ref={imgRef} />
+      <TextBox ref={profileRef}>
         <Title>이연정</Title>
         <p className="introduceText">
           좋은 서비스에 대해 고민할 줄 아는 개발자가 되고자 합니다.

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { DiJavascript1, DiReact, DiNodejsSmall } from "react-icons/di";
 import { SiNextdotjs, SiTypescript } from "react-icons/si";
@@ -8,8 +9,10 @@ import { SubTitle, Wrapper } from "./Common";
 
 const Container = styled.div`
   margin: 40px 0px;
-`
-
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.7s linear;
+`;
 const FlexBox = styled.div`
   padding: 20px 0px;
   box-sizing: border-box;
@@ -44,10 +47,26 @@ const SubText = styled.p`
 `;
 
 function Skills() {
+  const containerRef = useRef();
+
+  useEffect(() => {
+    let observer = new IntersectionObserver((e) => {
+      e.forEach((v) => {
+        if (v.isIntersecting) {
+          v.target.style.opacity = 1;
+          v.target.style.transform = "translateX(0px)";
+        } else {
+          v.target.style.opacity = 0;
+          v.target.style.transform = "translateX(30px)";
+        }
+      });
+    });
+    observer.observe(containerRef.current);
+  }, []);
   return (
     <Wrapper>
       <SubTitle>Skills.</SubTitle>
-      <Container>
+      <Container ref={containerRef}>
         <FlexBox>
           <RiVuejsFill className="icon" />
           <TextBox>

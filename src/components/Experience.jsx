@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { MdTransitEnterexit } from "react-icons/md";
 import { VscCircleSmall } from "react-icons/vsc";
@@ -7,15 +8,18 @@ const FlexBox = styled.div`
   padding: 40px 0px;
   box-sizing: border-box;
   display: flex;
+  opacity: 0.5;
+  transform: translateY(-10px);
+  transition: all 0.7s;
 `;
 
 const SummaryBox = styled.div`
   width: 27%;
-`
+`;
 
 const TextBox = styled.div`
   width: 71%;
-`
+`;
 
 const SummaryText = styled.p`
   font-size: 17px;
@@ -24,15 +28,15 @@ const SummaryText = styled.p`
 `;
 
 const SubText = styled.p`
-  color : #41424a;
+  color: #41424a;
   font-size: 16px;
   font-weight: 300;
   padding: 3px 0px;
-`
+`;
 
 const ListWrapper = styled.ul`
   padding: 10px 0px;
-`
+`;
 
 const List = styled.li`
   font-size: 16px;
@@ -72,22 +76,30 @@ const workData = {
       "홍보용 affiliate 싱글 페이지 사이트 개발 - bettingspoonaffilliate.com",
       "사내 프론트엔드 코딩 컨벤션 가이드 정립",
     ],
-    stacks: [
-      "Vue",
-      "Vuex",
-      "Javascript",
-      "Github",
-      "Slack",
-      "Jira",
-    ],
+    stacks: ["Vue", "Vuex", "Javascript", "Github", "Slack", "Jira"],
   },
 };
 
 function Experience() {
+  const exprienceRef = useRef();
+  useEffect(() => {
+    let observer = new IntersectionObserver((e) => {
+      e.forEach((v) => {
+        if (v.isIntersecting) {
+          v.target.style.opacity = 1;
+          v.target.style.transform = "translateY(0px)";
+        } else {
+          v.target.style.opacity = 0;
+          v.target.style.transform = "translateY(-10px)";
+        }
+      });
+    });
+    observer.observe(exprienceRef.current);
+  }, []);
   return (
     <Wrapper>
       <SubTitle>Work Experience.</SubTitle>
-      <FlexBox>
+      <FlexBox ref={exprienceRef}>
         <SummaryBox>
           <Subject>
             <a

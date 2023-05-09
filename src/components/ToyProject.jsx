@@ -1,11 +1,11 @@
+import { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
-import { useState } from "react";
 import { TbPlaylist, TbCarrot } from "react-icons/tb";
 import { FaEthereum } from "react-icons/fa";
 import { AiOutlineAppstore } from "react-icons/ai";
 import { GrPrevious, GrNext } from "react-icons/gr";
 import { SubTitle } from "./Common";
-import styles from "./ToyProject.module.css"
+import styles from "./ToyProject.module.css";
 
 const Wrapper = styled.div`
   padding: 20px;
@@ -25,6 +25,8 @@ const Slider = styled.div`
   overflow: -webkit-scrollbar;
   display: flex;
   z-index: 20;
+  transform: translateX(100px);
+  transition: all 0.5s linear;
 
   &::-webkit-scrollbar {
     display: none;
@@ -114,10 +116,11 @@ const projectData = [
 
 function ToyProject({ showModal }) {
   const [movePx, setMovePx] = useState(0);
+  const sliderRef = useRef();
 
   const showDetails = (projectName) => {
     showModal(true, projectName);
-  }
+  };
 
   const moveToNext = () => {
     if (movePx > -200) setMovePx(movePx - 200);
@@ -127,11 +130,24 @@ function ToyProject({ showModal }) {
     if (movePx < 0) setMovePx(movePx + 200);
   };
 
+  useEffect(() => {
+    let observer = new IntersectionObserver((e) => {
+      e.forEach((v) => {
+        if (v.isIntersecting) {
+          v.target.style.transform = "translateX(0px)";
+        } else {
+          v.target.style.transform = "translateX(100px)";
+        }
+      });
+    });
+    observer.observe(sliderRef.current);
+  }, []);
+
   return (
     <Wrapper>
       <SubTitle>Toy Project.</SubTitle>
       <SlideBox>
-        <Slider>
+        <Slider ref={sliderRef}>
           <CardWrapper movePx={movePx}>
             {projectData.map((v, i) => (
               <ProjectCard
@@ -145,16 +161,10 @@ function ToyProject({ showModal }) {
             ))}
           </CardWrapper>
         </Slider>
-        <PrevBtn
-          onClick={moveToPrev}
-          movePx={movePx}
-        >
+        <PrevBtn onClick={moveToPrev} movePx={movePx}>
           <GrPrevious />
         </PrevBtn>
-        <NextBtn
-          onClick={moveToNext}
-          movePx={movePx}
-        >
+        <NextBtn onClick={moveToNext} movePx={movePx}>
           <GrNext />
         </NextBtn>
       </SlideBox>
