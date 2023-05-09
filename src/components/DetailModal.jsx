@@ -127,9 +127,11 @@ const ModalBody = styled.section`
   display: flex;
   padding: 10px;
   justify-content: space-between;
+  overflow-y: auto;
 
   @media (max-width: 1024px) {
-   flex-direction: column;
+    flex-direction: column;
+    height: 80vh;
   }
 `;
 
@@ -208,12 +210,12 @@ const DetailBox = styled.div`
 
   @media (max-width: 1024px) {
     width: 100%;
-    height: 430px;
-    overflow-y: auto;
+    /* height: 100vw; */
+    /* overflow-y: auto; */
   }
 
   @media (max-width: 767px) {
-    height: 300px;
+    /* height: 100vw; */
   }
 
   ul li {
@@ -254,6 +256,7 @@ function DetailModal({ isModalVisible, showModal, project }) {
   const hideModal = () => {
     showModal(false, '')
   }
+
   return (
     <ModalLayer isVisible={isModalVisible}>
       <div className="invisibleLayer" onClick={hideModal}></div>
@@ -274,22 +277,37 @@ function DetailModal({ isModalVisible, showModal, project }) {
               </li>
               <li className="assetsBox">
                 {contents?.assets.github !== "" && (
-                  <span className="pill">
+                  <a
+                    className="pill"
+                    href={contents?.assets.github}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <BsGithub className="icon" />
-                    <span className='text'>Github</span>
-                  </span>
+                    <span className="text">Github</span>
+                  </a>
                 )}
                 {contents?.assets.demo !== "" && (
-                  <span className="pill">
+                  <a
+                    className="pill"
+                    href={contents?.assets.demo}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <CgWebsite className="icon" />
-                    <span className='text'>Demo</span>
-                  </span>
+                    <span className="text">Demo</span>
+                  </a>
                 )}
                 {contents?.assets.video !== "" && (
-                  <span className="pill">
+                  <a
+                    className="pill"
+                    href={contents?.assets.video}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <BiVideo className="icon" />
-                    <span className='text'>Video</span>
-                  </span>
+                    <span className="text">Video</span>
+                  </a>
                 )}
               </li>
             </ul>
