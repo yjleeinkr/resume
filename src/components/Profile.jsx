@@ -118,7 +118,7 @@ function Profile() {
   }, []);
   return (
     <FlexWrapper>
-      <ImgBox src="profile_img.png" alt="my_profile" ref={imgRef} />
+      <ImgBox src={`${process.env.PUBLIC_URL}/profile_img.png`} alt="my_profile" ref={imgRef} />
       <TextBox ref={profileRef}>
         <Title>이연정</Title>
         <p className="introduceText">

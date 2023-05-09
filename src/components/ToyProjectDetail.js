@@ -2,7 +2,7 @@ const projectDetail = {
   nft: {
     subject: "NFT 음원 거래 및 스트리밍 사이트",
     period: "2022/08/19 - 2022/09/26",
-    imgPath: "/assets/project/pj5.gif",
+    imgPath: `${process.env.PUBLIC_URL}/assets/project/pj5.gif`,
     techStack: [
       "Frontend: Next + Typescript / 상태관리 RTK",
       "Backend: NodeJS, web3, Docker",
@@ -31,7 +31,7 @@ const projectDetail = {
   blockExplorer: {
     subject: "이더리움 기반 block explorer 사이트",
     period: "2022/07/04 - 2022/07/08",
-    imgPath: "/assets/project/pj4.gif",
+    imgPath: `${process.env.PUBLIC_URL}/assets/project/pj4.gif`,
     techStack: [
       "Frontend: React",
       "Backend: NodeJS, web3, socket.io, Sequelize",
@@ -57,7 +57,7 @@ const projectDetail = {
   toastApp: {
     subject: "Android App 술자리의 민족",
     period: "2022/05/16 - 2022/05/30",
-    imgPath: "/assets/project/pj3.gif",
+    imgPath: `${process.env.PUBLIC_URL}/assets/project/pj3.gif`,
     techStack: ["Frontend: React Native + Expo"],
     assets: {
       github: "https://github.com/yjleeinkr/Project_Drunken_Korean",
@@ -80,7 +80,7 @@ const projectDetail = {
   carrotWorld: {
     subject: "중고거래/경매 사이트 Carrol world",
     period: "2022/03/21 - 2022/04/08",
-    imgPath: "/assets/project/pj2.gif",
+    imgPath: `${process.env.PUBLIC_URL}/assets/project/pj2.gif`,
     techStack: [
       "Frontend: NodeJS",
       "Backend: NodeJS, socket.io, JWT, passport, MySQL",
@@ -97,7 +97,7 @@ const projectDetail = {
     roles: [
       "socket.io를 사용한 실시간 채팅 기능 및 채팅방 구현",
       "고객센터 게시판 CRUD 및 댓글 기능 구현",
-      "로컬 로그인, 회원가입, 폼체크 기능 구현"
+      "로컬 로그인, 회원가입, 폼체크 기능 구현",
     ],
     lessons: [
       "Express를 사용해 프론트 및 백 서버를 구축해볼 수 있었고, 비동기 통신 처리에 익숙해졌습니다.",
