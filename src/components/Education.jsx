@@ -14,18 +14,34 @@ const SummaryText = styled.p`
   font-weight: 300;
   padding: 15px 0px;
   line-height: 30px;
+
+  @media (max-width: 1024px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
 `;
 
 const SubTextBolder = styled.p`
   font-size: 18px;
   font-weight: 400;
   padding: 3px 0px;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+  }
 `;
 
 const SubText = styled.p`
   font-size: 16px;
   font-weight: 300;
   padding: 3px 0px;
+
+  @media (max-width: 767px) {
+    font-size: 15px;
+  }
 `;
 
 function Education() {

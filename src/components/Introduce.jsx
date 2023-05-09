@@ -10,6 +10,16 @@ const ParagraphText = styled.p`
   opacity: 0.5;
   transform: translateY(-10px);
   transition: all 0.7s;
+
+  @media (max-width: 1024px) {
+    font-size: 15px;
+    padding: 15px 0px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+    padding: 15px 0px;
+  }
 `;
 
 function Profile() {

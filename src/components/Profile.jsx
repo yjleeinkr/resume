@@ -9,6 +9,10 @@ const FlexWrapper = styled(Wrapper)`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 
 const ImgBox = styled.img`
@@ -16,6 +20,10 @@ const ImgBox = styled.img`
   opacity: 0.5;
   transform: translateY(-20px);
   transition: all 0.7s;
+
+  @media (max-width: 767px) {
+    width: 90%;
+  }
 `;
 
 const TextBox = styled.div`
@@ -30,6 +38,20 @@ const TextBox = styled.div`
     padding: 10px 0px;
     font-size: 15px;
     font-weight: 400;
+
+    @media (max-width: 767px) {
+      font-size: 16px;
+      padding: 5px 0px;
+      font-weight: 300;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    width: 68%;
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
   }
 `;
 
@@ -39,6 +61,15 @@ const Text = styled.p`
   display: flex;
   align-items: center;
   padding: 7px 0px;
+
+  @media (max-width: 1024px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 13px;
+    padding: 5px 0px;
+  }
 
   &:hover {
     color: #0c80bf;
@@ -99,7 +130,7 @@ function Profile() {
         </Text>
         <NonHoverText>
           <HiPhone className="icons" />
-          채용 사이트에 나와 있는 번호로 연락 부탁드립니다.
+          채용 사이트 상의 번호로 연락 부탁드립니다.
         </NonHoverText>
         <Text>
           <GoMarkGithub className="icons" />

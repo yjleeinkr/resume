@@ -12,6 +12,15 @@ const Wrapper = styled.div`
   margin: 0 auto;
   padding: 30px;
   box-sizing: border-box;
+
+  @media (max-width: 1024px) {
+    width: 767px;
+  }
+
+  @media (max-width: 767px) {
+    width: 100vw;
+    padding: 1vw;
+  }
 `;
 
 function Container({ showModal }) {

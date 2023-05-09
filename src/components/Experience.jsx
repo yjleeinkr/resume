@@ -11,20 +11,36 @@ const FlexBox = styled.div`
   opacity: 0.5;
   transform: translateY(-10px);
   transition: all 0.7s;
+
+  @media (max-width: 767px) {
+    padding: 20px 0px;
+    flex-direction: column;
+  }
 `;
 
 const SummaryBox = styled.div`
   width: 27%;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const TextBox = styled.div`
   width: 71%;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const SummaryText = styled.p`
   font-size: 17px;
   font-weight: 300;
   padding: 15px 0px;
+
+  @media (max-width: 1024px) {
+    font-size: 15px;
+    padding: 10px 0px;
+  }
 `;
 
 const SubText = styled.p`
@@ -32,16 +48,39 @@ const SubText = styled.p`
   font-size: 16px;
   font-weight: 300;
   padding: 3px 0px;
+
+  @media (max-width: 1024px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 12px;
+    line-height: 18px;
+  }
 `;
 
 const ListWrapper = styled.ul`
   padding: 10px 0px;
+
+  @media (max-width: 1024px) {
+    padding: 5px 0px;
+  }
 `;
 
 const List = styled.li`
   font-size: 16px;
   font-weight: 300;
   padding: 6px 0px;
+  display: flex;
+
+  @media (max-width: 1024px) {
+    font-size: 14px;
+    padding: 5px 0px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
 `;
 
 const PillBox = styled.div`
@@ -63,6 +102,17 @@ const Pill = styled.span`
   margin: 5px 3px;
   text-align: center;
   border: 0.5px solid rgb(221, 221, 221);
+
+  @media (max-width: 1024px) {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 12px;
+    min-width: 60px;
+    padding: 6px;
+  }
 `;
 
 const workData = {
@@ -117,7 +167,7 @@ function Experience() {
         <TextBox>
           <Subject>
             <a href="https://bettingspoon.com" target="_blank" rel="noreferrer">
-              Bettingspoon.com
+              Bettingspoon.com 사이트
               <MdTransitEnterexit />
             </a>
           </Subject>

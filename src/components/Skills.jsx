@@ -12,6 +12,10 @@ const Container = styled.div`
   opacity: 0;
   transform: translateX(30px);
   transition: all 0.7s linear;
+
+  @media (max-width: 767px) {
+    margin: 20px 0px;
+  }
 `;
 const FlexBox = styled.div`
   padding: 20px 0px;
@@ -22,6 +26,10 @@ const FlexBox = styled.div`
   .icon {
     font-size: 45px;
     margin-right: 40px;
+
+    @media (max-width: 767px) {
+      margin-right: 20px;
+    }
   }
 `;
 
@@ -33,6 +41,10 @@ const SubTextBolder = styled.p`
   font-size: 18px;
   font-weight: 500;
   padding: 3px 0px;
+
+  @media (max-width: 1024px) {
+    font-size: 17px;
+  }
 `;
 
 const SubText = styled.p`
@@ -43,6 +55,14 @@ const SubText = styled.p`
 
   .bold {
     font-weight: 400;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 14px;
   }
 `;
 

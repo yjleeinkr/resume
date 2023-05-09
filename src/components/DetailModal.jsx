@@ -55,12 +55,36 @@ const Modal = styled.div`
   border-radius: 10px;
   animation: ${modalAnimation} 0.3s;
   z-index: 10;
+
+  @media (max-width: 1024px) {
+    height: 93vh;
+  }
+
+  @media (max-width: 767px) {
+    padding: 10px 15px;
+  }
+
+  @media (max-width: 320px) {
+    padding: 10px 12px;
+  }
 `;
 
 const ModalHeader = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 20px;
+
+  @media (max-width: 1024px) {
+    padding: 15px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 10px;
+  }
+
+  @media (max-width: 320px) {
+    padding: 8px;
+  }
 
   .closingBtn {
     background: #e8e8ed;
@@ -73,9 +97,29 @@ const ModalHeader = styled.header`
     height: 36px;
     width: 36px;
     cursor: pointer;
+
+    @media (max-width: 767px) {
+      font-size: 15px;
+      width: 28px;
+      height: 28px;
+    }
+
+    @media (max-width: 320px) {
+      font-size: 13px;
+      width: 26px;
+      height: 26px;
+    }
   }
   h1 {
     font-size: 25px;
+
+    @media (max-width: 767px) {
+      font-size: 15px;
+    }
+
+    @media (max-width: 320px) {
+      font-size: 13px;
+    }
   }
 `;
 
@@ -83,11 +127,25 @@ const ModalBody = styled.section`
   display: flex;
   padding: 10px;
   justify-content: space-between;
+
+  @media (max-width: 1024px) {
+   flex-direction: column;
+  }
 `;
 
 const SummaryBox = styled.div`
   width: 45%;
 
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+
+  ul {
+    @media (max-width: 1024px) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
   ul li {
     padding: 10px 0px;
   }
@@ -96,12 +154,20 @@ const SummaryBox = styled.div`
     font-weight: 600;
     display: inline-block;
     margin-bottom: 5px;
+
+    @media (max-width: 767px) {
+      font-size: 14px;
+    }
   }
 
   .text {
     font-weight: 300;
     padding: 2px 0px;
     font-size: 13px;
+
+    @media (max-width: 767px) {
+      font-size: 12px;
+    }
   }
   .assetsBox {
     .pill {
@@ -116,8 +182,22 @@ const SummaryBox = styled.div`
       margin-right: 10px;
       border-radius: 5px;
 
+      @media (max-width: 767px) {
+        margin-right: 5px;
+      }
+
       .icon {
         margin-right: 5px;
+        @media (max-width: 767px) {
+          margin-right: 0px;
+          font-size: 16px;
+        }
+      }
+
+      .text {
+        @media (max-width: 767px) {
+          display: none;
+        }
       }
     }
   }
@@ -126,13 +206,30 @@ const SummaryBox = styled.div`
 const DetailBox = styled.div`
   width: 53%;
 
+  @media (max-width: 1024px) {
+    width: 100%;
+    height: 430px;
+    overflow-y: auto;
+  }
+
+  @media (max-width: 767px) {
+    height: 300px;
+  }
+
   ul li {
     padding: 10px;
+    @media (max-width: 1024px) {
+      padding: 10px 0px;
+    }
   }
   .subject {
     font-weight: 600;
     display: inline-block;
     margin-bottom: 5px;
+
+    @media (max-width: 767px) {
+      font-size: 14px;
+    }
   }
 
   .text {
@@ -140,12 +237,16 @@ const DetailBox = styled.div`
     padding: 2px 0px;
     font-size: 14px;
     line-height: 22px;
+
+    @media (max-width: 767px) {
+      font-size: 13px;
+    }
   }
 `;
 
 const Img = styled.img`
   width: 100%;
-`
+`;
 
 function DetailModal({ isModalVisible, showModal, project }) {
   const contents = projectDetail[project];
@@ -175,19 +276,19 @@ function DetailModal({ isModalVisible, showModal, project }) {
                 {contents?.assets.github !== "" && (
                   <span className="pill">
                     <BsGithub className="icon" />
-                    Github
+                    <span className='text'>Github</span>
                   </span>
                 )}
                 {contents?.assets.demo !== "" && (
                   <span className="pill">
                     <CgWebsite className="icon" />
-                    Demo
+                    <span className='text'>Demo</span>
                   </span>
                 )}
                 {contents?.assets.video !== "" && (
                   <span className="pill">
                     <BiVideo className="icon" />
-                    Video
+                    <span className='text'>Video</span>
                   </span>
                 )}
               </li>
