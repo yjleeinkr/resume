@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { useState } from "react";
 import { TbPlaylist, TbCarrot } from "react-icons/tb";
 import { FaEthereum } from "react-icons/fa";
 import { AiOutlineAppstore } from "react-icons/ai";
+import { GrPrevious, GrNext } from "react-icons/gr";
 import { SubTitle } from "./Common";
 import styles from "./ToyProject.module.css"
 
@@ -14,13 +16,16 @@ const SlideBox = styled.div`
   box-sizing: border-box;
   width: 100%;
   overflow: hidden;
+  position: relative;
 `;
 
 const Slider = styled.div`
-  overflow: scroll;
+  overflow: hidden;
   overflow: -moz-scrollbars-none;
   overflow: -webkit-scrollbar;
   display: flex;
+  z-index: 20;
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -31,8 +36,13 @@ const Slider = styled.div`
   -ms-overflow-style: none;
 `;
 
+const CardWrapper = styled.div`
+  display: flex;
+  transition: all 0.4s ease;
+  transform: ${(props) => `translateX(${props.movePx}px)`};
+`;
+
 const ProjectCard = styled.div`
-  width: 400px;
   min-width: 250px;
   background-color: #fff;
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.08) inset;
@@ -47,44 +57,106 @@ const ProjectCard = styled.div`
   }
 `;
 
+const CommonBtn = styled.span`
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.087);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  top: 43%;
+  transition: all 0.5s;
+`;
+
+const PrevBtn = styled(CommonBtn)`
+  left: 0;
+  opacity: ${(props) => (props.movePx === 0 ? 0 : 0.7)};
+`;
+
+const NextBtn = styled(CommonBtn)`
+  right: 0;
+  opacity: ${(props) => (props.movePx === -200 ? 0 : 0.7)};
+`;
+
+const projectData = [
+  {
+    icon: <TbPlaylist className={`${styles.icon} ${styles.purple}`} />,
+    title1: "기업 협업 프로젝트",
+    title2: "NFT 음원 거래 사이트",
+    params: "nft",
+    bolder: 2,
+  },
+  {
+    icon: <FaEthereum className={`${styles.icon} ${styles.slate}`} />,
+    title1: "이더리움 기반",
+    title2: "Block Explorer 사이트",
+    params: "blockExplorer",
+    bolder: 2,
+  },
+  {
+    icon: <AiOutlineAppstore className={`${styles.icon} ${styles.green}`} />,
+    title1: "랜덤 건배사 앱",
+    title2: "술자리의 민족",
+    params: "toastApp",
+    bolder: 1,
+  },
+  {
+    icon: <TbCarrot className={`${styles.icon} ${styles.orange}`} />,
+    title1: "중고거래/경매 사이트",
+    title2: "Carrot World",
+    params: "carrotWorld",
+    bolder: 1,
+  },
+];
+
 function ToyProject({ showModal }) {
+  const [movePx, setMovePx] = useState(0);
+
   const showDetails = (projectName) => {
     showModal(true, projectName);
   }
+
+  const moveToNext = () => {
+    if (movePx > -200) setMovePx(movePx - 200);
+  };
+
+  const moveToPrev = () => {
+    if (movePx < 0) setMovePx(movePx + 200);
+  };
+
   return (
     <Wrapper>
       <SubTitle>Toy Project.</SubTitle>
       <SlideBox>
         <Slider>
-          <ProjectCard onClick={() => showDetails("nft")}>
-            <TbPlaylist className={`${styles.icon} ${styles.purple}`} />
-            <div>
-              <p>기업 협업 프로젝트,</p>
-              <p>NFT 음원 거래 사이트.</p>
-            </div>
-          </ProjectCard>
-          <ProjectCard onClick={() => showDetails("blockExplorer")}>
-            <FaEthereum className={`${styles.icon} ${styles.slate}`} />
-            <div>
-              <p>이더리움 기반,</p>
-              <p>Block Explorer 사이트.</p>
-            </div>
-          </ProjectCard>
-          <ProjectCard onClick={() => showDetails("toastApp")}>
-            <AiOutlineAppstore className={`${styles.icon} ${styles.green}`} />
-            <div>
-              <p>랜덤 건배사 앱,</p>
-              <p>술자리의 민족.</p>
-            </div>
-          </ProjectCard>
-          <ProjectCard onClick={() => showDetails("carrotWorld")}>
-            <TbCarrot className={`${styles.icon} ${styles.orange}`} />
-            <div>
-              <p>중고거래/경매 사이트,</p>
-              <p>Carrot World</p>
-            </div>
-          </ProjectCard>
+          <CardWrapper movePx={movePx}>
+            {projectData.map((v, i) => (
+              <ProjectCard
+                key={`project_${i}`}
+                onClick={() => showDetails(v.params)}
+              >
+                {v.icon}
+                <p className={v.bolder === 1 ? styles.bold : ""}>{v.title1},</p>
+                <p className={v.bolder === 2 ? styles.bold : ""}>{v.title2}.</p>
+              </ProjectCard>
+            ))}
+          </CardWrapper>
         </Slider>
+        <PrevBtn
+          onClick={moveToPrev}
+          movePx={movePx}
+        >
+          <GrPrevious />
+        </PrevBtn>
+        <NextBtn
+          onClick={moveToNext}
+          movePx={movePx}
+        >
+          <GrNext />
+        </NextBtn>
       </SlideBox>
     </Wrapper>
   );
