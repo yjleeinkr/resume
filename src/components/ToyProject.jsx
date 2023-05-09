@@ -4,6 +4,7 @@ import { TbPlaylist, TbCarrot } from "react-icons/tb";
 import { FaEthereum } from "react-icons/fa";
 import { AiOutlineAppstore } from "react-icons/ai";
 import { GrPrevious, GrNext } from "react-icons/gr";
+import { isMobile, isTablet } from "react-device-detect";
 import { SubTitle } from "./Common";
 import styles from "./ToyProject.module.css";
 
@@ -81,6 +82,14 @@ const PrevBtn = styled(CommonBtn)`
 const NextBtn = styled(CommonBtn)`
   right: 0;
   opacity: ${(props) => (props.movePx === -200 ? 0 : 0.7)};
+
+  @media (max-width: 1024px) {
+    opacity: ${(props) => (props.movePx === -400 ? 0 : 0.7)};
+  }
+
+  @media (max-width: 767px) {
+    opacity: ${(props) => (props.movePx === -810 ? 0 : 0.7)};
+  }
 `;
 
 const projectData = [
@@ -123,10 +132,26 @@ function ToyProject({ showModal }) {
   };
 
   const moveToNext = () => {
-    if (movePx > -200) setMovePx(movePx - 200);
+    if (!isTablet && isMobile && movePx > -810) {
+      setMovePx(movePx - 270);
+      console.log('mobile');
+      return;
+    }
+    if (isTablet && movePx > -400) {
+      setMovePx(movePx - 200);
+      return;
+    }
+    if (movePx > -200) {
+      setMovePx(movePx - 200);
+      return;
+    }
   };
 
   const moveToPrev = () => {
+     if (!isTablet && isMobile && movePx < 0) {
+       setMovePx(movePx + 270);
+       return;
+     }
     if (movePx < 0) setMovePx(movePx + 200);
   };
 
