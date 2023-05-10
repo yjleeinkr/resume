@@ -104,7 +104,7 @@ function Skills() {
             <SubTextBolder>React</SubTextBolder>
             <SubText>
               재사용 가능한 함수형 컴포넌트 작성이 가능하며 styled-components
-              작성에 능숙하며, Redux-thunk, saga, RTK, Recoil과 같은 상태 관리,
+              작성에 능숙합니다. Redux-thunk, saga, RTK, Recoil과 같은 상태 관리,
               변경 툴 사용이 가능합니다.
             </SubText>
           </TextBox>
@@ -114,7 +114,7 @@ function Skills() {
           <TextBox>
             <SubTextBolder>Next</SubTextBolder>
             <SubText>
-              Next의 pre-rendering 방식 SSR이나 SSG에 대해 이해하며 구현
+              Next의 pre-rendering 방식 SSR이나 SSG에 대해 이해하고 구현
               가능하며 라우팅, 이미지 최적화 등 Next가 제공하는 기본 기능 활용이
               가능합니다.
             </SubText>
@@ -125,8 +125,7 @@ function Skills() {
           <TextBox>
             <SubTextBolder>Javascript</SubTextBolder>
             <SubText>
-              자바스크립트 문법에 익숙하며, Jquery 없이 DOM을 다루는데
-              능숙합니다.
+              주 언어로서 기본적인 개념 및 문법을 숙지하고 있습니다. 코드를 작성하는 데 그치지 않고 작동원리를 바탕으로 보다 효율적이고 직관적인 코드를 작성하기 위해 고민하고 노력합니다.
             </SubText>
           </TextBox>
         </FlexBox>
@@ -135,8 +134,7 @@ function Skills() {
           <TextBox>
             <SubTextBolder>Typescript</SubTextBolder>
             <SubText>
-              타입스크립트 기본 문법을 이해하여 React에서 상태나 변수, 함수에
-              대한 타입 및 인터페이스 작성이 가능합니다.
+              타입스크립트의 개념 및 사용 목적에 대해 숙지하고 있습니다. 타입 지정을 통해 타입 안정성을 확보하고 컴파일 과정에서 에러를 잡아내는 등 타입스크립트를 사용해 보다 안정성 있는 코드를 작성하기 위해 노력합니다.
             </SubText>
           </TextBox>
         </FlexBox>
