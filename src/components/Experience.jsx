@@ -115,8 +115,15 @@ const Pill = styled.span`
   }
 `;
 
-const workData = {
-  ozlabs: {
+const workData = [
+  {
+    company: ["Ozlabs", "https://nft.bettingspoon.com/"],
+    role: "Web Frontend Developer",
+    period: "2022.11 - ",
+    project: ["Bettingspoon.com 사이트", "https://bettingspoon.com"],
+    summary: `     신입 프론트엔드 개발자로서 글로벌 카지노 게임 플랫폼의 프론트단을
+            개발하고 있습니다. 현재 첫 런칭을 마무리했으며, 매주 버그 개선 및
+            일부 소소한 기능들을 추가하고 있습니다.`,
     details: [
       "기존 Vue2 기반의 외주 코드를 Vue3로 마이그레이션 및 리팩토링 작업",
       "모바일 및 태블릿 반응형 인터페이스 구현",
@@ -128,10 +135,10 @@ const workData = {
     ],
     stacks: ["Vue", "Vuex", "Javascript", "Github", "Slack", "Jira"],
   },
-};
+];
 
 function Experience() {
-  const exprienceRef = useRef();
+  const exprienceRef = useRef([]);
   useEffect(() => {
     let observer = new IntersectionObserver((e) => {
       e.forEach((v) => {
@@ -144,55 +151,50 @@ function Experience() {
         }
       });
     });
-    observer.observe(exprienceRef.current);
+    exprienceRef.current.forEach((el) => observer.observe(el));
   }, []);
+
   return (
     <Wrapper>
       <SubTitle>Work Experience.</SubTitle>
-      <FlexBox ref={exprienceRef}>
-        <SummaryBox>
-          <Subject>
-            <a
-              href="https://nft.bettingspoon.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Ozlabs
-              <MdTransitEnterexit />
-            </a>
-          </Subject>
-          <SubText>Web Frontend Developer</SubText>
-          <SubText>2022.11 - 현재</SubText>
-        </SummaryBox>
-        <TextBox>
-          <Subject>
-            <a href="https://bettingspoon.com" target="_blank" rel="noreferrer">
-              Bettingspoon.com 사이트
-              <MdTransitEnterexit />
-            </a>
-          </Subject>
-          <SummaryText>
-            신입 프론트엔드 개발자로서 글로벌 카지노 게임 플랫폼의 프론트단을
-            개발하고 있습니다. 현재 첫 런칭을 마무리했으며, 매주 버그 개선 및
-            일부 소소한 기능들을 추가하고 있습니다.
-          </SummaryText>
-          <DetailSubject>Details</DetailSubject>
-          <ListWrapper>
-            {workData.ozlabs.details.map((v, i) => (
-              <List key={`ozlabs_${i}`}>
-                <VscCircleSmall />
-                {v}
-              </List>
-            ))}
-          </ListWrapper>
-          <DetailSubject>Tech Stacks</DetailSubject>
-          <PillBox>
-            {workData.ozlabs.stacks.map((v) => (
-              <Pill key={v}>{v}</Pill>
-            ))}
-          </PillBox>
-        </TextBox>
-      </FlexBox>
+      {workData.map((data, i) => (
+        <FlexBox key={i} ref={(el) => (exprienceRef.current[i] = el)}>
+          <SummaryBox>
+            <Subject>
+              <a href={data.company[1]} target="_blank" rel="noreferrer">
+                {data.company[0]}
+                <MdTransitEnterexit />
+              </a>
+            </Subject>
+            <SubText>{data.role}</SubText>
+            <SubText>{data.period}</SubText>
+          </SummaryBox>
+          <TextBox>
+            <Subject>
+              <a href={data.project[1]} target="_blank" rel="noreferrer">
+                {data.project[0]}
+                <MdTransitEnterexit />
+              </a>
+            </Subject>
+            <SummaryText>{data.summary}</SummaryText>
+            <DetailSubject>Details</DetailSubject>
+            <ListWrapper>
+              {data.details.map((v, i) => (
+                <List key={`ozlabs_${i}`}>
+                  <VscCircleSmall />
+                  {v}
+                </List>
+              ))}
+            </ListWrapper>
+            <DetailSubject>Tech Stacks</DetailSubject>
+            <PillBox>
+              {data.stacks.map((v) => (
+                <Pill key={v}>{v}</Pill>
+              ))}
+            </PillBox>
+          </TextBox>
+        </FlexBox>
+      ))}
     </Wrapper>
   );
 }
