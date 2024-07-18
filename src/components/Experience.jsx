@@ -149,7 +149,7 @@ const workData = [
     period: "2023.06 - 현재",
     project: [
       {
-        name: "redprinting.co.kr 모바일 웹앱",
+        name: "레드프린팅 모바일 웹앱",
         link: "https://m.redprinting.co.kr",
         subText: "모바일에서 확인 부탁드립니다.",
       },
