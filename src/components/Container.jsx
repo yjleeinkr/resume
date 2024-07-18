@@ -3,8 +3,8 @@ import Profile from "./Profile";
 import Introduce from "./Introduce";
 import Experience from "./Experience";
 import ToyProject from "./ToyProject";
-import Skills from "./Skills";
 import Education from "./Education";
+import Certi from "./Certi";
 import Footer from "./Footer";
 
 const Wrapper = styled.div`
@@ -30,8 +30,8 @@ function Container({ showModal }) {
       <Introduce />
       <Experience />
       <ToyProject showModal={showModal} />
-      <Skills />
       <Education />
+      <Certi />
       <Footer />
     </Wrapper>
   );

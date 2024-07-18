@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { HiOutlineMail, HiPhone } from "react-icons/hi";
 import { GoMarkGithub } from "react-icons/go";
-import { SiTistory } from "react-icons/si";
 import { Title, Wrapper } from "./Common";
 
 const FlexWrapper = styled(Wrapper)`
@@ -144,16 +143,6 @@ function Profile() {
             rel="noreferrer"
           >
             https://github.com/yjleeinkr
-          </a>
-        </Text>
-        <Text>
-          <SiTistory className="icons" />
-          <a
-            href="https://yjleekr.tistory.com"
-            target="_blank"
-            rel="noreferrer"
-          >
-            https://yjleekr.tistory.com
           </a>
         </Text>
       </TextBox>
