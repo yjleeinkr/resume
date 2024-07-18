@@ -47,7 +47,7 @@ function Certi() {
   }, []);
   return (
     <Wrapper>
-      <SubTitle>Certification.</SubTitle>
+      <SubTitle>Certifications.</SubTitle>
       <TextBox ref={certiRef}>
         <Subject>정보처리기사</Subject>
         <SubTextBolder>한국산업인력공단</SubTextBolder>
