@@ -144,7 +144,10 @@ const Pill = styled.span`
 
 const workData = [
   {
-    company: { name: "베러웨이시스템즈", site: "" },
+    company: {
+      name: "베러웨이시스템즈",
+      site: "https://www.betterwaysystems.com/ko/company",
+    },
     role: "Web Frontend Developer",
     period: "2023.06 - 현재",
     project: [
